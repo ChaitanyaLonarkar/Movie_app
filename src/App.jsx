@@ -20,14 +20,6 @@ function App() {
       const data = await response.json();
       console.log(data.results);
       setMovie(data.results);
-      // console.log(movie);
-
-      // .then((response) => response.json())
-      // .then(data => {
-      //   setMovie(data.results);
-      //   console.log(data.results);
-      // });
-      // console.log(movie);
     } catch (error) {
       console.log(error);
     }
@@ -36,12 +28,26 @@ function App() {
   useEffect(() => {
     getMovies();
   }, []);
-  // const eg=["name","surname"]
+
+  const searchMovie = async(e)=>{
+    e.preventDefault();
+    console.log("Searching");
+    try{
+      const url=`https://api.themoviedb.org/3/search/movie?api_key=bcc4ff10c2939665232d75d8bf0ec093&query=${query}`;
+      const res= await fetch(url);
+      const data= await res.json();
+      console.log(data);
+      setMovies(data.results);
+    }
+    catch(e){
+      console.log(e);
+    }
+  }
 
   return (
     <>
-      <Navbar />
-      <MoviePopup data={movie} />
+      <Navbar sm={searchMovie}/>
+      {/* <MoviePopup data={movie} /> */}
       <div className="container position-relative">
         {movie.map((item) => (
           <MovieBox data={item} />

@@ -14,6 +14,7 @@ export default function MoviePopup(props) {
           </div>
           <div className="rgt">
             <h2>{m?.title}</h2>
+            <br />
             <p>{m?.overview}</p>
             <p>
               <b>Release Date : </b> {m?.release_date}

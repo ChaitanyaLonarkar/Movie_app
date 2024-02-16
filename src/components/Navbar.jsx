@@ -1,6 +1,12 @@
 import React from "react";
 
-export default function Navbar() {
+export default function Navbar(props) {
+  const [sm]=props
+  const [query, setQuery]=useState('');
+  const changeHandler=(e)=>{
+    setQuery(e.target.value);
+  }
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary bg-dark fixed-top border-body px-5 py-3" data-bs-theme="dark">
@@ -34,12 +40,13 @@ export default function Navbar() {
             </ul>
             <form className="d-flex" role="search">
               <input
+              value={query} onChange={changeHandler}
                 className="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button className="btn btn-outline-success" type="submit">
+              <button className="btn btn-outline-success" type="submit" onClick={sm}>
                 Search
               </button>
             </form>
