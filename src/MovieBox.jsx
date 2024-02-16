@@ -9,7 +9,7 @@ export default function MovieBox(props) {
         <div className="img">
           <img src={API_IMG + data.poster_path} alt="" />
         </div>
-        <h3>{data.title}</h3>
+        <h6>{data.title}</h6>
         {/* <div className="details">
           <p>
             <b>Release date : </b>
