@@ -7,9 +7,10 @@ import Navbar from "./components/Navbar";
 import MoviePopup from "./components/MoviePopup";
 
 const API_SEARCH =
-  "https://api.themoviedb.org/3/search/movie?api_key=323e3fe5a8237f5319c4b400fb4bd2d9&query";
+"https://api.themoviedb.org/3/search/movie?api_key=323e3fe5a8237f5319c4b400fb4bd2d9&query";
 
 function App() {
+  const [query, setQuery]=useState('');
   const [movie, setMovie] = useState([]);
 
   const getMovies = async () => {
@@ -31,22 +32,27 @@ function App() {
 
   const searchMovie = async(e)=>{
     e.preventDefault();
+    console.log(e)
     console.log("Searching");
     try{
       const url=`https://api.themoviedb.org/3/search/movie?api_key=bcc4ff10c2939665232d75d8bf0ec093&query=${query}`;
       const res= await fetch(url);
       const data= await res.json();
-      console.log(data);
-      setMovies(data.results);
+      console.log("hhhhhhhhhhhhhh",data);
+      setMovie(data.results);
     }
     catch(e){
       console.log(e);
     }
   }
+  const changeHandler=(e)=>{
+    setQuery(e.target.value);
+    // console.log('This is from : ', query)
+  }
 
   return (
     <>
-      <Navbar sm={searchMovie}/>
+      <Navbar sm={searchMovie} changeHandler={changeHandler}/>
       {/* <MoviePopup data={movie} /> */}
       <div className="container position-relative">
         {movie.map((item) => (

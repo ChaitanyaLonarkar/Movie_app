@@ -1,12 +1,9 @@
 import React from "react";
+import { useState } from "react";
 
 export default function Navbar(props) {
-  const [sm]=props
-  const [query, setQuery]=useState('');
-  const changeHandler=(e)=>{
-    setQuery(e.target.value);
-  }
-
+  const {sm,changeHandler}=props
+  // const [query, setQuery]=useState('');
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary bg-dark fixed-top border-body px-5 py-3" data-bs-theme="dark">
