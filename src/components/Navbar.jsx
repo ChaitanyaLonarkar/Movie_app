@@ -10,6 +10,21 @@ export default function Navbar(props) {
   //   document.getElementById('active').classList.add="active"
   // }
   // const [query, setQuery]=useState('');
+
+  const [isActive, setIsActive] = useState(false);
+  const [isActive2, setIsActive2] = useState(false);
+
+  const toggleClass = () => {
+    setIsActive(!isActive);
+  };
+
+  const alt=()=>{
+    alert("wrong name")
+  }
+
+  const toggleClass2 = () => {
+    setIsActive(!isActive2);
+  };
   return (
     <>
       <nav
@@ -17,7 +32,7 @@ export default function Navbar(props) {
         data-bs-theme="dark"
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" >
             <img src={bm} alt="logo" />
             MOVIE MIX
           </a>
@@ -35,12 +50,12 @@ export default function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a id="active" className="nav-link  " onClick={() => trendings()}>
+                <a id="active" className={`nav-link ${isActive ?'active':''}`} onClick={() => {trendings(); toggleClass();alt()} } >
                 Trendings
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" onClick={() => latest()}>
+                <a className={`nav-link ${isActive2 ?'active':''}`} onClick={() => {latest(); toggleClass2()} }>
                   Latest
                 </a>
               </li>
