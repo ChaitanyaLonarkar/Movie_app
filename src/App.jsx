@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import MovieBox from "./MovieBox";
 import Navbar from "./components/Navbar";
 import MoviePopup from "./components/MoviePopup";
+import { LATEST, TRENDINGS } from "./components/API";
+import { API_KEY } from "./components/API";
+import { MOVIE_GENRES } from "./components/API";
+import Pagination from "./components/Pagination";
 
 const API_SEARCH =
 "https://api.themoviedb.org/3/search/movie?api_key=323e3fe5a8237f5319c4b400fb4bd2d9&query";
@@ -12,6 +14,8 @@ const API_SEARCH =
 function App() {
   const [query, setQuery]=useState('');
   const [movie, setMovie] = useState([]);
+  const [Show, setShow] = useState(false);
+
 
   const getMovies = async () => {
     try {
@@ -28,17 +32,17 @@ function App() {
 
   useEffect(() => {
     getMovies();
+    // trendings();
   }, []);
 
   const searchMovie = async(e)=>{
     e.preventDefault();
-    console.log(e)
     console.log("Searching");
     try{
       const url=`https://api.themoviedb.org/3/search/movie?api_key=bcc4ff10c2939665232d75d8bf0ec093&query=${query}`;
       const res= await fetch(url);
       const data= await res.json();
-      console.log("hhhhhhhhhhhhhh",data);
+      // console.log("hhhhhhhhhhhhhh",data);
       setMovie(data.results);
     }
     catch(e){
@@ -50,16 +54,47 @@ function App() {
     // console.log('This is from : ', query)
   }
 
+  const trendings = async()=>{
+    // e.preventDefault();
+    try{
+      const url=TRENDINGS;
+      console.log("Trending",url) ;
+
+      const res= await fetch(url);
+      const data= await res.json();
+      console.log("hhhhhhhhhhhhhh",data);
+      setMovie(data.results);
+    }
+    catch(e){
+      console.log(e);
+    }
+  }
+
+  const latest = async()=>{
+    // e.preventDefault();
+    try{
+      const url=LATEST;
+      console.log("Trending",url) ;
+      const res= await fetch(url);
+      const data= await res.json();
+      console.log("hhhhhhhhhhhhhh",data);
+      setMovie(data.results);
+    }
+    catch(e){
+      console.log(e);
+    }
+  }
+
   return (
     <>
-      <Navbar sm={searchMovie} changeHandler={changeHandler}/>
-      {/* <MoviePopup data={movie} /> */}
-      <div className="container position-relative">
+      <Navbar sm={searchMovie} query={query} changeHandler={changeHandler} trendings={trendings} latest={latest} />
+      {Show && <MoviePopup data={movie}  />}
+      <div className="container ">
         {movie.map((item) => (
-          <MovieBox data={item} />
+          <MovieBox data={item} show={setShow}/>
         ))}
-        {/* movie.poster_path
-        <img src={API_IMG + movie?.poster_path} alt="" /> */}
+       
+      <Pagination/>
       </div>
     </>
   );

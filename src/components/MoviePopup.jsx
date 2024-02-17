@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function MoviePopup(props) {
-  const { data } = props;
+  const { data  } = props;
   const API_IMG = "https://image.tmdb.org/t/p/w500/";
   const m = data.pop();
   return (

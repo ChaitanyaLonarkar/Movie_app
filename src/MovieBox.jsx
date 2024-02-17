@@ -2,10 +2,10 @@ import React from "react";
 
 export default function MovieBox(props) {
   const API_IMG = "https://image.tmdb.org/t/p/w500/";
-  const { data } = props;
+  const { data ,show } = props;
   return (
     <>
-      <div className="moviebox">
+      <div className="moviebox" onClick={show(false)} >
         <div className="img">
           <img src={API_IMG + data.poster_path} alt="" />
         </div>
