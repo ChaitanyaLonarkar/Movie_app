@@ -48,7 +48,7 @@ export default function MoviePopup(props) {
             <img src={API_IMG + moviepop?.poster_path} alt="" />
           </div>
           <div className="rgt">
-            <h2>{moviepop?.title}</h2>
+            <h3>{moviepop?.title}</h3>
             <br />
             <p className="text-start">{moviepop?.overview}</p>
             <p>
