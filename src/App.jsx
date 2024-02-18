@@ -15,7 +15,8 @@ function App() {
   const [query, setQuery]=useState('');
   const [movie, setMovie] = useState([]);
   const [Show, setShow] = useState(false);
-
+  const [movieId, setmovieId] = useState();
+  
 
   const getMovies = async () => {
     try {
@@ -51,7 +52,7 @@ function App() {
   }
   const changeHandler=(e)=>{
     setQuery(e.target.value);
-    // console.log('This is from : ', query)
+    console.log('This is from : ', query)
   }
 
   const trendings = async()=>{
@@ -85,13 +86,14 @@ function App() {
     }
   }
 
+
   return (
     <>
       <Navbar sm={searchMovie} query={query} changeHandler={changeHandler} trendings={trendings} latest={latest} />
-      {Show && <MoviePopup data={movie}  />}
-      <div className="container ">
+      {Show && <MoviePopup data={movie} show={setShow} id={movieId}/>}
+      <div className="containerr ">
         {movie.map((item) => (
-          <MovieBox data={item} show={setShow}/>
+          <MovieBox data={item} show={setShow} id={setmovieId}/>
         ))}
        
       <Pagination/>
