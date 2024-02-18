@@ -1,44 +1,23 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { API_KEY } from "./API";
-import axios from "react"
+import axios from "react";
 export default function MoviePopup(props) {
   const { data, show, id } = props;
   const [moviepop, setmoviepop] = useState([]);
   const API_IMG = "https://image.tmdb.org/t/p/w500/";
-  // const m = data.pop();
-  // const exactMovie = () => {
-  //   // console.log('ye hai data mere')
-  //   // console.log(data)
-
-  //   for (let i = 0; i <=data.length; i++) {
-
-  //     if (id==data[i].id) {
-  //       setmoviepop(data[i]);
-  //       console.log("%%%=============================%%%%%%%%%%%%%%%%%%%%%")
-  //       console.log(data[i].id);
-  //       // break;
-  //       // console.log(moviepop)
-  //     }
-  //     // else{console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")}
-  //   }
-  // };
-  // exactMovie();.
 
   const fetchMovieDetails = async () => {
     const res = await fetch(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`
     );
-    const moviedata=await res.json();
+    const moviedata = await res.json();
     setmoviepop(moviedata);
-    console.log(moviedata)
+    console.log(moviedata);
   };
   useEffect(() => {
-    // getMovies();
- fetchMovieDetails();
-    // trendings();
+    fetchMovieDetails();
   }, []);
-//  fetchMovieDetails();
 
   return (
     <>

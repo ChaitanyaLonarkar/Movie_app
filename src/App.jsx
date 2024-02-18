@@ -43,7 +43,7 @@ function App() {
       const url=`https://api.themoviedb.org/3/search/movie?api_key=bcc4ff10c2939665232d75d8bf0ec093&query=${query}`;
       const res= await fetch(url);
       const data= await res.json();
-      // console.log("hhhhhhhhhhhhhh",data);
+      console.log("hhhhhhhhhhhhhh",data);
       setMovie(data.results);
     }
     catch(e){
