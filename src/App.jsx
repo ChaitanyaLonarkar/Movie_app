@@ -59,11 +59,11 @@ function App() {
     // e.preventDefault();
     try{
       const url=TRENDINGS;
-      console.log("Trending",url) ;
+      // console.log("Trending",url) ;
 
       const res= await fetch(url);
       const data= await res.json();
-      console.log("hhhhhhhhhhhhhh",data);
+      // console.log("hhhhhhhhhhhhhh",data);
       setMovie(data.results);
     }
     catch(e){
@@ -75,10 +75,10 @@ function App() {
     // e.preventDefault();
     try{
       const url=LATEST;
-      console.log("Trending",url) ;
+      // console.log("Trending",url) ;
       const res= await fetch(url);
       const data= await res.json();
-      console.log("hhhhhhhhhhhhhh",data);
+      // console.log("hhhhhhhhhhhhhh",data);
       setMovie(data.results);
     }
     catch(e){
