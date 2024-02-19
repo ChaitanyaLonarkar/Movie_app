@@ -1,3 +1,7 @@
+# Movie Mix
+This website is made using react.js and it uses movie api
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
