@@ -1,5 +1,6 @@
 # Movie Mix
 This website is made using react.js and it uses movie api
+and if you want to check live demo 
 
 
 # React + Vite
