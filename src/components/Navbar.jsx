@@ -6,10 +6,6 @@ import bm from "../assets/blackmm.png"
 
 export default function Navbar(props) {
   const { sm, changeHandler, query ,trendings ,latest} = props;
-  // if (trendings){
-  //   document.getElementById('active').classList.add="active"
-  // }
-  // const [query, setQuery]=useState('');
 
   const [isActive, setIsActive] = useState(false);
   const [isActive2, setIsActive2] = useState(false);
@@ -18,8 +14,9 @@ export default function Navbar(props) {
     setIsActive(!isActive);
   };
 
-  // const alt=()=>{
-  //   alert("wrong name")
+  // const ani=()=>{
+  //   document.getElementsByClassName('moviebox').addClassName
+  //   // alert("wrong name")
   // }
 
   const toggleClass2 = () => {
@@ -49,7 +46,7 @@ export default function Navbar(props) {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+              <li className="nav-item ">
                 <a id="active" className={`nav-link ${isActive ?'active':''}`} onClick={() => {trendings(); toggleClass()} } >
                 Trendings
                 </a>

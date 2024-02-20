@@ -3,6 +3,8 @@ import React from "react";
 export default function MovieBox(props) {
   const API_IMG = "https://image.tmdb.org/t/p/w500/";
   const { data ,show,id } = props;
+
+  
   return (
     <>
       <div className="moviebox" >
