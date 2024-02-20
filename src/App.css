@@ -70,7 +70,9 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #10101dd6;
+  
 }
+
 
 .popup {
   width: 46em;
@@ -101,6 +103,7 @@ nav {
   background-color: #2552cb;
 }
 
-a {
-  cursor: pointer;
+a:active {
+  /* cursor: pointer; */
+  color: #2552cb;
 }
