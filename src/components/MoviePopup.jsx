@@ -30,8 +30,11 @@ export default function MoviePopup(props) {
             <h3>{moviepop?.title}</h3>
             <br />
             <p className="text-start">{moviepop?.overview}</p>
-            <p>
+            <p className="extra">
               <b>Release Date : </b> {moviepop?.release_date}
+            </p>
+            <p className="extra">
+              <b>Movie Rating : </b> {moviepop?.vote_average} / 10
             </p>
             <div className="d-flex align-item-start gap-3">
               <button className=" btn btn-primary">Watch Trailer</button>

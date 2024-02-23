@@ -95,6 +95,10 @@ body {
 .popup img {
   width: 200px;
 }
+.extra{
+  margin: 0px;
+  margin-bottom: 5px;
+}
 
 .trend {
   margin-top: 100px;
