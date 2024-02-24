@@ -91,13 +91,15 @@ body {
   flex-direction: column;
   align-items: start;
 }
-
+.popup .rgt h3{
+  margin-bottom: 15px;
+}
 .popup img {
   width: 200px;
 }
 .extra{
   margin: 0px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .trend {
