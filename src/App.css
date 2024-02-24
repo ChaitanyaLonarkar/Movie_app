@@ -113,3 +113,49 @@ a:active {
   /* cursor: pointer; */
   color: #2552cb;
 }
+/* Pagination  css */
+.paginate{
+  display:flex;
+  gap: 0 12px;
+  color: white;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  list-style: none;
+  text-decoration: none;
+  margin: 3%;
+}
+
+.paginate>li{
+  background-color: #252525;
+  font-size: 18px;
+  padding: .3em .6em;
+  border-radius: 5px;
+  transition: all .2s linear;
+}
+
+.paginate>li:hover{
+  background-color: #ceb200;
+  color: black;
+}
+
+.selected{
+  background-color:#ceb200  !important;
+  color: black;
+}
+
+.paginate > .previous>a{
+  color: white ;
+  text-decoration: none;
+}
+.paginate > .next>a{
+  color: white ;
+  text-decoration: none;
+  
+}
+.paginate > .previous>a:hover{
+  color: black ;
+}
+.paginate > .next>a:hover{
+  color: black ;
+}

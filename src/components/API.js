@@ -7,12 +7,17 @@ export const IMAGE_UNAVAILABLE_PLACEHOLDER="https://upload.wikimedia.org/wikiped
 
 // export const TRENDINGS = (pageNumber = 1) =>
 //   `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}&page=${pageNumber}`;
+export const TRENDINGS = (pageNumber = 1) =>
+  `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}&page=${pageNumber}`;
 
-export const TRENDINGS =
-  `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}&page=1`;
+export const LATEST = (pageNumber = 1) =>
+  `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=${pageNumber}`;
 
-export const LATEST =
-  `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`;
+// export const TRENDINGS =
+//   `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}&page=1`;
+
+// export const LATEST =
+//   `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`;
 
 export const MOVIE_GENRES = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`;
 

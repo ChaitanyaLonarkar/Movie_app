@@ -8,15 +8,15 @@ import { API_KEY } from "./components/API";
 import { MOVIE_GENRES } from "./components/API";
 import Pagination from "./components/Pagination";
 
-const API_SEARCH =
-"https://api.themoviedb.org/3/search/movie?api_key=323e3fe5a8237f5319c4b400fb4bd2d9&query";
+// const API_SEARCH =
+// "https://api.themoviedb.org/3/search/movie?api_key=323e3fe5a8237f5319c4b400fb4bd2d9&query";
 
 function App() {
   const [query, setQuery]=useState('');
   const [movie, setMovie] = useState([]);
   const [Show, setShow] = useState(false);
   const [movieId, setmovieId] = useState();
-  
+  const [currentPage, setCurrentPage] = useState(1);
 
   const getMovies = async () => {
     try {
@@ -24,7 +24,7 @@ function App() {
         "https://api.themoviedb.org/3/discover/movie?api_key=323e3fe5a8237f5319c4b400fb4bd2d9"
       );
       const data = await response.json();
-      console.log(data.results);
+      console.log(data);
       setMovie(data.results);
     } catch (error) {
       console.log(error);
@@ -34,7 +34,7 @@ function App() {
   useEffect(() => {
     getMovies();
     // trendings();
-  }, []);
+  }, [currentPage]);
 
   const searchMovie = async(e)=>{
     e.preventDefault();
@@ -58,7 +58,7 @@ function App() {
   const trendings = async()=>{
     // e.preventDefault();
     try{
-      const url=TRENDINGS;
+      const url=TRENDINGS(currentPage);
       // console.log("Trending",url) ;
 
       const res= await fetch(url);
@@ -96,8 +96,8 @@ function App() {
           <MovieBox data={item} show={setShow} id={setmovieId}/>
         ))}
        
-      <Pagination/>
       </div>
+      <Pagination setCurrentPage={setCurrentPage} currentPage={currentPage}/>
     </>
   );
 }
