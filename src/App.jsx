@@ -18,31 +18,12 @@ function App() {
   const [movieId, setmovieId] = useState();
   const [currentPage, setCurrentPage] = useState(1);
 
-  // const getMovies = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       "https://api.themoviedb.org/3/discover/movie?api_key=323e3fe5a8237f5319c4b400fb4bd2d9"
-  //     );
-  //     const data = await response.json();
-  //     console.log(data);
-  //     setMovie(data.results);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getMovies();
-  //   // trendings();
-  // }, []);
-
   useEffect(()=>{
     trendings();
     // searchMovie();
   },[currentPage])
 
   const searchMovie = async(e)=>{
-    // e.preventDefault();
     console.log("Searching");
     try{
       const url=SEARCH_MOVIES(currentPage,query);
@@ -58,18 +39,18 @@ function App() {
   }
   const changeHandler=(e)=>{
     setQuery(e.target.value);
-    console.log('This is from : ', query)
+    // console.log('This is from : ', query)
   }
 
   const trendings = async()=>{
-    // e.preventDefault();
-    // alert("ksdjksdk")
     try{
       const url=TRENDINGS(currentPage);
-      console.log("Trending",url) ;
+      // console.log("Trending",url) ;
       const res= await fetch(url);
       const data= await res.json();
       // console.log("hhhhhhhhhhhhhh",data);
+      console.log(data)
+
       setMovie(data.results);
     }
     catch(e){
@@ -81,6 +62,7 @@ function App() {
     <>
       <Navbar sm={searchMovie} query={query} changeHandler={changeHandler} trendings={trendings} />
       {Show && <MoviePopup data={movie} show={setShow} id={movieId}/>}
+      
       <div className="containerr ">
         {movie.map((item) => (
           <MovieBox data={item} show={setShow} id={setmovieId}/>

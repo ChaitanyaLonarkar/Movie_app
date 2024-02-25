@@ -12,7 +12,7 @@ export default function MovieBox(props) {
           <img src={API_IMG + data.poster_path} alt={data.title} />
         </div>
         <h6>{data.title}</h6>
-        <button className="detail-btn btn btn-success p-1 mt-1  mb-3" key={data.id} onClick={()=>{show(true);id(data.id)}}>View More</button>
+        <button className="detail-btn btn-success p-1 mt-1  mb-3" key={data.id} onClick={()=>{show(true);id(data.id)}}>View More</button>
       </div>
     </>
   );
