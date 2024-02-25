@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import MoviePopup from "./components/MoviePopup";
 import { LATEST, TRENDINGS } from "./components/API";
 import { API_KEY } from "./components/API";
-import { MOVIE_GENRES } from "./components/API";
+import { MOVIE_GENRES ,SEARCH_MOVIES } from "./components/API";
 import Pagination from "./components/Pagination";
 
 // const API_SEARCH =
@@ -18,32 +18,39 @@ function App() {
   const [movieId, setmovieId] = useState();
   const [currentPage, setCurrentPage] = useState(1);
 
-  const getMovies = async () => {
-    try {
-      const response = await fetch(
-        "https://api.themoviedb.org/3/discover/movie?api_key=323e3fe5a8237f5319c4b400fb4bd2d9"
-      );
-      const data = await response.json();
-      console.log(data);
-      setMovie(data.results);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const getMovies = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       "https://api.themoviedb.org/3/discover/movie?api_key=323e3fe5a8237f5319c4b400fb4bd2d9"
+  //     );
+  //     const data = await response.json();
+  //     console.log(data);
+  //     setMovie(data.results);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    getMovies();
-    // trendings();
-  }, [currentPage]);
+  // useEffect(() => {
+  //   getMovies();
+  //   // trendings();
+  // }, []);
+
+  useEffect(()=>{
+    trendings();
+    // searchMovie();
+    // latest();
+  },[currentPage])
 
   const searchMovie = async(e)=>{
-    e.preventDefault();
+    // e.preventDefault();
     console.log("Searching");
     try{
-      const url=`https://api.themoviedb.org/3/search/movie?api_key=bcc4ff10c2939665232d75d8bf0ec093&query=${query}`;
+      const url=SEARCH_MOVIES(currentPage,query);
+      console.log(url)
       const res= await fetch(url);
       const data= await res.json();
-      // console.log("hhhhhhhhhhhhhh",data);
+      console.log("hhhhhhhhhhhhhh",data);
       setMovie(data.results);
     }
     catch(e){
@@ -71,25 +78,25 @@ function App() {
     }
   }
 
-  const latest = async()=>{
-    // e.preventDefault();
-    try{
-      const url=LATEST;
-      // console.log("Trending",url) ;
-      const res= await fetch(url);
-      const data= await res.json();
-      // console.log("hhhhhhhhhhhhhh",data);
-      setMovie(data.results);
-    }
-    catch(e){
-      console.log(e);
-    }
-  }
+  // const latest = async()=>{
+  //   // e.preventDefault();
+  //   try{
+  //     const url=LATEST;
+  //     // console.log("Trending",url) ;
+  //     const res= await fetch(url);
+  //     const data= await res.json();
+  //     // console.log("hhhhhhhhhhhhhh",data);
+  //     setMovie(data.results);
+  //   }
+  //   catch(e){
+  //     console.log(e);
+  //   }
+  // }
 
 
   return (
     <>
-      <Navbar sm={searchMovie} query={query} changeHandler={changeHandler} trendings={trendings} latest={latest} />
+      <Navbar sm={searchMovie} query={query} changeHandler={changeHandler}  />
       {Show && <MoviePopup data={movie} show={setShow} id={movieId}/>}
       <div className="containerr ">
         {movie.map((item) => (

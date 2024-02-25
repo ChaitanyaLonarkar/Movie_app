@@ -37,7 +37,7 @@ export default function Pagination(props) {
     className="paginate"
         breakLabel="..."
         nextLabel="next >"
-        onPageChange={(e)=>{props.setCurrentPage((e.selected+1));alert(props.currentPage)}}
+        onPageChange={(e)=>{props.setCurrentPage((e.selected+1))}}
         pageRangeDisplayed={1}
         pageCount={10}
         previousLabel="< previous"
