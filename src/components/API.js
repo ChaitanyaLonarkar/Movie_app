@@ -30,4 +30,6 @@ export const FILTERED_MOVIES_WITH_GENRES=(pageNumber=1,id)=>`https://api.themovi
 export const FILTERED_TV_SHOWS_WITH_GENRES=(pageNumber=1,id)=>`https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=${pageNumber}&timezone=America%2FNew_York&with_genres=${id}&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&with_status=0&with_type=0`
 
 
-export const SEARCH_MOVIES=(pageNumber=1,query="")=>`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=${pageNumber}&include_adult=false`
+export const SEARCH_MOVIES= (pageNumber=1,query)=>`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=${pageNumber}&include_adult=false`
+
+// console.log(SEARCH_MOVIES)

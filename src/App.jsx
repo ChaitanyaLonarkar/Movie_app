@@ -39,7 +39,6 @@ function App() {
   useEffect(()=>{
     trendings();
     // searchMovie();
-    // latest();
   },[currentPage])
 
   const searchMovie = async(e)=>{
@@ -50,7 +49,7 @@ function App() {
       console.log(url)
       const res= await fetch(url);
       const data= await res.json();
-      console.log("hhhhhhhhhhhhhh",data);
+      // console.log("hhhhhhhhhhhhhh",data);
       setMovie(data.results);
     }
     catch(e){
@@ -64,10 +63,10 @@ function App() {
 
   const trendings = async()=>{
     // e.preventDefault();
+    // alert("ksdjksdk")
     try{
       const url=TRENDINGS(currentPage);
-      // console.log("Trending",url) ;
-
+      console.log("Trending",url) ;
       const res= await fetch(url);
       const data= await res.json();
       // console.log("hhhhhhhhhhhhhh",data);
@@ -78,31 +77,14 @@ function App() {
     }
   }
 
-  // const latest = async()=>{
-  //   // e.preventDefault();
-  //   try{
-  //     const url=LATEST;
-  //     // console.log("Trending",url) ;
-  //     const res= await fetch(url);
-  //     const data= await res.json();
-  //     // console.log("hhhhhhhhhhhhhh",data);
-  //     setMovie(data.results);
-  //   }
-  //   catch(e){
-  //     console.log(e);
-  //   }
-  // }
-
-
   return (
     <>
-      <Navbar sm={searchMovie} query={query} changeHandler={changeHandler}  />
+      <Navbar sm={searchMovie} query={query} changeHandler={changeHandler} trendings={trendings} />
       {Show && <MoviePopup data={movie} show={setShow} id={movieId}/>}
       <div className="containerr ">
         {movie.map((item) => (
           <MovieBox data={item} show={setShow} id={setmovieId}/>
         ))}
-       
       </div>
       <Pagination setCurrentPage={setCurrentPage} currentPage={currentPage}/>
     </>

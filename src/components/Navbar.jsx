@@ -1,22 +1,12 @@
 import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
 import bm from "../assets/blackmm.png"
 
 
 
 export default function Navbar(props) {
-  const { sm, changeHandler, query} = props;
+  const { sm, changeHandler, query, trendings} = props;
 
-  const [isActive, setIsActive] = useState(false);
-  const [isActive2, setIsActive2] = useState(false);
-
-  const toggleClass = () => {
-    setIsActive(!isActive);
-  };
-
-  const toggleClass2 = () => {
-    setIsActive(!isActive2);
-  };
   return (
     <>
       <nav
@@ -42,17 +32,12 @@ export default function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item ">
-                <a id="active" className="nav-link  active " >
+                <a id="active" className="nav-link  active  " onClick={trendings}>
                 Trendings
                 </a>
               </li>
-              {/* <li className="nav-item">
-                <a className={`nav-link ${isActive2 ?'active':''}`} onClick={() => {latest(); toggleClass2()} }>
-                  Latest
-                </a>
-              </li> */}
             </ul>
-            <form className="d-flex" role="search">
+            <div className="d-flex" role="search">
               <input
                 value={query}
                 onChange={changeHandler}
@@ -60,6 +45,7 @@ export default function Navbar(props) {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                required
               />
               <button
                 className="btn btn-outline-success"
@@ -68,7 +54,7 @@ export default function Navbar(props) {
               >
                 Search
               </button>
-            </form>
+            </div>
           </div>
         </div>
       </nav>

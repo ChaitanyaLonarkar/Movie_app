@@ -36,11 +36,11 @@ export default function Pagination(props) {
     <ReactPaginate
     className="paginate"
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel=">"
         onPageChange={(e)=>{props.setCurrentPage((e.selected+1))}}
         pageRangeDisplayed={1}
         pageCount={10}
-        previousLabel="< previous"
+        previousLabel="<"
         renderOnZeroPageCount={null}
       />
     

@@ -159,3 +159,18 @@ a:active {
 .paginate > .next>a:hover{
   color: black ;
 }
+
+
+/* .popup{
+  width: 19em;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  gap: 30px;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 20px;
+} */
