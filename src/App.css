@@ -225,6 +225,8 @@ nav a:active {
     font-size: xx-small;
   }
   .navbar-nav{
-    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 }
