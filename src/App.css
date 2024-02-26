@@ -220,11 +220,9 @@ nav a:active {
     width: 80%;
     margin-top: 4.2em;
     gap: 7px;
-    gap: 5;
   }
   .genres button {
     font-size: xx-small;
-    justify-self: unset;
   }
   .navbar-nav{
     display: flex;
