@@ -5,7 +5,11 @@ import Navbar from "./components/Navbar";
 import MoviePopup from "./components/MoviePopup";
 import { LATEST, TRENDINGS } from "./components/API";
 import { API_KEY } from "./components/API";
-import { MOVIE_GENRES, SEARCH_MOVIES } from "./components/API";
+import {
+  MOVIE_GENRES,
+  SEARCH_MOVIES,
+  FILTERED_MOVIES_WITH_GENRES,
+} from "./components/API";
 import Pagination from "./components/Pagination";
 import MovieGenres from "./components/MovieGenres";
 
@@ -20,9 +24,9 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [genre, setGenre] = useState([]);
 
-
   useLayoutEffect(() => {
     trendings();
+    fetchGenres()
     // searchMovie();
   }, [currentPage]);
 
@@ -60,24 +64,29 @@ function App() {
   };
 
   // const fetchLatest = async () => {
-  //   const { data: movies } = await fetchData(LATEST(currentPage));
-  //   const data = await movies.json();
-  //   setMovie(data.results);
+    
   //   // setLatestTotalPages(data.total_pages);
   // };
 
   const fetchGenres = async () => {
-    const genre  = await fetch(MOVIE_GENRES);
+    const genre = await fetch(MOVIE_GENRES);
     const re = await genre.json();
-    // console.log("fetch movei",re.g)
+    console.log("fetch movei",re.genres)
     setGenre(re.genres);
 
-    const { data } = await fetch(
-      FILTERED_MOVIES_WITH_GENRES(currentPage, id)
-    );
+    const movies  = await fetch(LATEST(currentPage));
+    const data = await movies.json();
     setMovie(data.results);
+
+    // const data  = await fetch(
+    //   FILTERED_MOVIES_WITH_GENRES(currentPage, re.genres.id)
+    // );
+    // const reGenre = await data.json();
+    // console.log(reGenre);
+    // setMovie(data.results);
   };
 
+  
 
   return (
     <>
@@ -89,7 +98,7 @@ function App() {
         fetchGenres={fetchGenres}
       />
       {Show && <MoviePopup data={movie} show={setShow} id={movieId} />}
-      { (genre=="")?null:<MovieGenres data={genre} />}
+      {genre == "" ? null : <MovieGenres data={genre} />}
 
       <div className="containerr ">
         {movie.map((item) => (
