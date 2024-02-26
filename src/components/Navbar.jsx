@@ -5,7 +5,7 @@ import bm from "../assets/blackmm.png"
 
 
 export default function Navbar(props) {
-  const { sm, changeHandler, query, trendings} = props;
+  const { sm, changeHandler, query, trendings,fetchGenres} = props;
 
   return (
     <>
@@ -14,8 +14,8 @@ export default function Navbar(props) {
         data-bs-theme="dark"
       >
         <div className="container-fluid">
-          <a className="navbar-brand" >
-            <img src={bm} alt="logo" />
+          <a className="navbar-brand pe-auto" onClick={trendings} >
+            <img src={bm} alt="logo"  />
             MOVIE MIX
           </a>
           <button
@@ -32,8 +32,18 @@ export default function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item ">
-                <a id="active" className="nav-link  active  " onClick={trendings}>
+                <a id="active" className="nav-link pe-auto  active  " onClick={trendings}>
                 Trendings
+                </a>
+              </li>
+              <li className="nav-item ">
+                <a id="active" className="nav-link pe-auto  active  " onClick={fetchGenres}>
+                Movies
+                </a>
+              </li>
+              <li className="nav-item ">
+                <a id="active" className="nav-link pe-auto  active  " onClick={trendings}>
+                TV
                 </a>
               </li>
             </ul>

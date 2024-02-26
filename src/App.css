@@ -6,7 +6,10 @@ body {
 
 .navbar {
   /* background-color: #161616; */
-  padding: 0.5% 3%;
+  padding: 0.2% 3%;
+}
+.navbar {
+  cursor: pointer;
 }
 .container-fluid .navbar-brand img {
   width: 50px;
@@ -18,7 +21,7 @@ body {
   gap: 45px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 10em;
+  margin-top: 5em;
   z-index: -1;
 }
 .moviebox {
@@ -58,13 +61,13 @@ body {
   outline: none;
   background: transparent;
   border: none;
-  border :2px solid #4681f4;
+  border: 2px solid #4681f4;
   transition: all 0.5s;
   border-radius: 12px 0px 12px 0px;
   color: white;
 }
-.moviebox .detail-btn:hover{
-  border :2px solid #4681f4;
+.moviebox .detail-btn:hover {
+  border: 2px solid #4681f4;
   background: #4681f4;
   color: white;
 }
@@ -110,7 +113,7 @@ body {
   text-decoration: none;
 }
 
-.popup .btn{
+.popup .btn {
   border-radius: 0px 10px;
 }
 .extra {
@@ -175,6 +178,18 @@ nav a:active {
   color: black;
 }
 
+.genres {
+  width: 80%;
+  /* border: 1px solid; */
+  margin-top: 5em;
+  justify-content: center;
+  gap: 15px;
+}
+.genres button {
+  background-color: #4681f4;
+  color: #e0e0e0;
+  padding: 5px 10px;
+}
 @media screen and (max-width: 800px) {
   .popup {
     width: 19em;
@@ -187,7 +202,7 @@ nav a:active {
     margin-top: 7em;
   }
   .navbar {
-    padding:10px 0px;
+    padding: 1px 0px;
     /* padding-bottom: 10px; */
   }
   .moviebox {
