@@ -223,6 +223,7 @@ nav a:active {
   }
   .genres button {
     font-size: xx-small;
+    justify-self: unset;
   }
   .navbar-nav{
     display: flex;
