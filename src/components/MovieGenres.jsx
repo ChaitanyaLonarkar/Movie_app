@@ -20,6 +20,7 @@ export default function MovieGenres(props) {
     // if (genreId != undefined) {
       // props.setMovie(reGenre.results);
       // alert("undefiner nhi h")
+      // kjsdkfjkxjdfkjkdjfkj
     // }
     console.log("ggggggggggggg", reGenre);
   };
