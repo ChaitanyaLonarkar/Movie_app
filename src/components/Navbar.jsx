@@ -47,11 +47,11 @@ export default function Navbar(props) {
                 </a>
               </li>
             </ul>
-            <div className="d-flex" role="search">
+            <div className=" search d-flex" role="search">
               <input
                 value={query}
                 onChange={changeHandler}
-                className="form-control me-2"
+                className="form-control  me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"

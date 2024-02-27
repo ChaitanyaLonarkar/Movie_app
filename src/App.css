@@ -186,7 +186,7 @@ nav a:active {
   gap: 15px;
 }
 .genres button {
-  background-color: #4681f4;
+  background-color: #4a87ffb0;
   color: #e0e0e0;
   padding: 5px 10px;
 }
@@ -229,4 +229,10 @@ nav a:active {
     flex-direction: row;
     justify-content: space-evenly;
   }
+  .mainpop {
+    
+    top: -68px;}
+    .search{
+      margin-bottom: 5px;
+    }
 }

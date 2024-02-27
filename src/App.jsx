@@ -71,7 +71,7 @@ function App() {
   const fetchGenres = async () => {
     const genre = await fetch(MOVIE_GENRES);
     const re = await genre.json();
-    console.log("fetch movei",re.genres)
+    // console.log("fetch movei",re.genres[0].id)
     setGenre(re.genres);
 
     const movies  = await fetch(LATEST(currentPage));
@@ -98,7 +98,7 @@ function App() {
         fetchGenres={fetchGenres}
       />
       {Show && <MoviePopup data={movie} show={setShow} id={movieId} />}
-      {genre == "" ? null : <MovieGenres data={genre} />}
+      {genre == "" ? null : <MovieGenres page={currentPage} data={genre} setMovie={setMovie} />}
 
       <div className="containerr ">
         {movie.map((item) => (
