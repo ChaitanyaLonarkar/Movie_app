@@ -22,6 +22,7 @@ export default function MovieGenres(props) {
       // alert("undefiner nhi h")
       // kjsdkfjkxjdfkjkdjfkj
       // hjghjghghghghghghghghjghghg
+      // hvhvhvhvvhvh
     // }
     console.log("ggggggggggggg", reGenre);
   };
