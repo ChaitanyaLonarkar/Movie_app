@@ -26,7 +26,7 @@ function App() {
 
   useLayoutEffect(() => {
     trendings();
-    fetchGenres()
+    // fetchGenres()
     // searchMovie();
   }, [currentPage]);
 
@@ -56,17 +56,14 @@ function App() {
       const data = await res.json();
       // console.log("hhhhhhhhhhhhhh",data);
       console.log(data);
-
       setMovie(data.results);
+      
+      document.getElementById("trend").classList.add("active")
+
     } catch (e) {
       console.log(e);
     }
   };
-
-  // const fetchLatest = async () => {
-    
-  //   // setLatestTotalPages(data.total_pages);
-  // };
 
   const fetchGenres = async () => {
     const genre = await fetch(MOVIE_GENRES);
@@ -77,6 +74,8 @@ function App() {
     const movies  = await fetch(LATEST(currentPage));
     const data = await movies.json();
     setMovie(data.results);
+    document.getElementById("movie").classList.add("active")
+
 
     // const data  = await fetch(
     //   FILTERED_MOVIES_WITH_GENRES(currentPage, re.genres.id)

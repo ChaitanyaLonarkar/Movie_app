@@ -9,16 +9,16 @@ export default function MovieGenres(props) {
   //   // console.log('This is from : ', query)
   // };
   // changeHandler();
-  useEffect(() => {
-    // handleGenre();
-  }, []);
+  // useEffect(() => {
+  //   handleGenre();
+  // }, []);
 
   const handleGenre = async () => {
     const dataa = await fetch(FILTERED_MOVIES_WITH_GENRES(props.page, genreId));
     console.log(genreId)
     const reGenre = await dataa.json();
     // if (genreId != undefined) {
-      // props.setMovie(reGenre.results);
+      props.setMovie(reGenre.results);
       // alert("undefiner nhi h")
       
     // }

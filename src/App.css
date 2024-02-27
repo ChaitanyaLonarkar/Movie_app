@@ -236,3 +236,11 @@ nav a:active {
       margin-bottom: 5px;
     }
 }
+
+#trend:checked{
+   color: #4681f4;
+   font-weight: bold;
+}
+#movie{
+
+}
