@@ -1,6 +1,9 @@
+# live
+https://moviee-mix.netlify.app/
+
 # Movie Mix
 This website is made using react.js and it uses movie api
-and if you want to check live demo then click below link 
+and if you want to check live demo then click above link 
 
 This website is made using API
 # React + Vite
