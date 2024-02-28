@@ -190,6 +190,9 @@ nav a:active {
   color: #e0e0e0;
   padding: 5px 10px;
 }
+.genres button:active {
+  background-color: #ceb200;
+}
 @media screen and (max-width: 800px) {
   .popup {
     width: 25em;
@@ -199,7 +202,7 @@ nav a:active {
   }
   .popup img {
     width: 170px;
-}
+  }
   .containerr {
     /* width: 78%; */
     gap: 20px;
@@ -224,23 +227,24 @@ nav a:active {
   .genres button {
     font-size: xx-small;
   }
-  .navbar-nav{
+  .navbar-nav {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
   }
   .mainpop {
-    
-    top: -68px;}
-    .search{
-      margin-bottom: 5px;
-    }
+    top: -68px;
+    height: 122vh;
+
+  }
+  .search {
+    margin-bottom: 5px;
+  }
 }
 
-#trend:checked{
-   color: #4681f4;
-   font-weight: bold;
+#trend:checked {
+  color: #4681f4;
+  font-weight: bold;
 }
-#movie{
-
+#movie {
 }

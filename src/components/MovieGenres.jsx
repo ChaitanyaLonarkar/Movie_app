@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import { FILTERED_MOVIES_WITH_GENRES } from "./API";
 export default function MovieGenres(props) {
   const [genreId, setgenreId] = useState();
@@ -13,6 +13,8 @@ export default function MovieGenres(props) {
   //   handleGenre();
   // }, []);
 
+  const btnRef = useRef()
+
   const handleGenre = async () => {
     const dataa = await fetch(FILTERED_MOVIES_WITH_GENRES(props.page, genreId));
     console.log(genreId)
@@ -23,6 +25,8 @@ export default function MovieGenres(props) {
       
     // }
     console.log("ggggggggggggg", reGenre);
+    btnRef.current.style.backgroundColor = "red";
+  
   };
   return (
     <div className="d-flex flex-wrap  genres">
@@ -34,6 +38,7 @@ export default function MovieGenres(props) {
             setgenreId(item?.id);
           }}
           key={item?.id}
+          ref={btnRef}
         >
           {item?.name} {item?.id}
         </button>
