@@ -193,6 +193,10 @@ nav a:active {
 .genres button:active {
   background-color: #ceb200;
 }
+
+.toggle{
+  background-color: yellow;
+}
 @media screen and (max-width: 800px) {
   .popup {
     width: 25em;
