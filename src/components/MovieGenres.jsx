@@ -3,11 +3,12 @@ import { useState, useEffect,useRef } from "react";
 import { FILTERED_MOVIES_WITH_GENRES } from "./API";
 export default function MovieGenres(props) {
   const [genreId, setgenreId] = useState();
-  // const changeHandler = (e) => {
-  //   console.log("Ye hai genere id", e.target.key);
-  //   setgenreId(e.target.key);
-  //   // console.log('This is from : ', query)
-  // };
+  const changeColor = (e) => {
+    e.target.style.backgroundColor = "red"
+    // console.log("Ye hai genere id", e.target.key);
+    // setgenreId(e.target.key);
+    // console.log('This is from : ', query)
+  };
   // changeHandler();
   // useEffect(() => {
   //   handleGenre();
@@ -33,9 +34,12 @@ export default function MovieGenres(props) {
       {props.data.map((item) => (
         <button
           className="btn"
+
           onClick={() => {
             handleGenre();
             setgenreId(item?.id);
+            changeColor();
+            
           }}
           key={item?.id}
           ref={btnRef}

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState, useRef, useEffect } from "react";
 import "./App.css";
 import MovieBox from "./MovieBox";
 import Navbar from "./components/Navbar";
@@ -26,10 +26,14 @@ function App() {
 
   useLayoutEffect(() => {
     trendings();
+    // bs();
     // fetchGenres()
     // searchMovie();
   }, [currentPage]);
 
+  // useEffect(() => {
+  //   bs();
+  // }, []);
   const searchMovie = async (e) => {
     // console.log("Searching");
     try {
@@ -57,9 +61,7 @@ function App() {
       // console.log("hhhhhhhhhhhhhh",data);
       console.log(data);
       setMovie(data.results);
-      
-      document.getElementById("trend").classList.add("active")
-
+      document.getElementById("trend").classList.add("active");
     } catch (e) {
       console.log(e);
     }
@@ -71,11 +73,10 @@ function App() {
     // console.log("fetch movei",re.genres[0].id)
     setGenre(re.genres);
 
-    const movies  = await fetch(LATEST(currentPage));
+    const movies = await fetch(LATEST(currentPage));
     const data = await movies.json();
     setMovie(data.results);
-    document.getElementById("movie").classList.add("active")
-
+    document.getElementById("movie").classList.add("active");
 
     // const data  = await fetch(
     //   FILTERED_MOVIES_WITH_GENRES(currentPage, re.genres.id)
@@ -85,7 +86,15 @@ function App() {
     // setMovie(data.results);
   };
 
-  
+  // const ref=useRef();
+  // const bs=()=>{
+  //   const c=document.getElementsByClassName("containerr")
+  //   genre==""?c.style.margin="100px":c.style.margin="100px"
+  //   // genre == "" ? ref.current.style.margin="1px" : ref.current.style.margin="100px";
+  //   alert("bs si calling")
+  // }
+  // bs()
+
 
   return (
     <>
@@ -97,9 +106,11 @@ function App() {
         fetchGenres={fetchGenres}
       />
       {Show && <MoviePopup data={movie} show={setShow} id={movieId} />}
-      {genre == "" ? null : <MovieGenres page={currentPage} data={genre} setMovie={setMovie} />}
+      {genre == "" ? null : (
+        <MovieGenres page={currentPage} data={genre} setMovie={setMovie} />
+      )}
 
-      <div className="containerr ">
+      <div className="containerr " >
         {movie.map((item) => (
           <MovieBox data={item} show={setShow} id={setmovieId} />
         ))}
