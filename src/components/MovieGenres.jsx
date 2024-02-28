@@ -14,7 +14,6 @@ export default function MovieGenres(props) {
   // useEffect(() => {
   //   handleGenre();
   // }, []);
-
   const btnRef = useRef()
   
   const handleGenre = async () => {
